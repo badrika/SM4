@@ -24,7 +24,7 @@ public class Monitor implements Runnable{
 
         long timestamp = System.currentTimeMillis();
         configBean.setLastTimestamp(timestamp);
-        boolean stateChanged = configBean.getStatus().DownToUp(timestamp, configBean.getGraceTime());
+        boolean stateChanged = configBean.getStatus().checkDownToUp(timestamp, configBean.getGraceTime());
         if (stateChanged) {
             configBean.serviceUpEvent(timestamp);
         }
@@ -35,7 +35,7 @@ public class Monitor implements Runnable{
 
         long timestamp = System.currentTimeMillis();
         configBean.setLastTimestamp(timestamp);
-        boolean stateChanged = configBean.getStatus().DownToUp(timestamp, configBean.getGraceTime());
+        boolean stateChanged = configBean.getStatus().checkUpToDown(timestamp, configBean.getGraceTime());
         if (stateChanged) {
             configBean.serviceDownEvent(timestamp);
         }

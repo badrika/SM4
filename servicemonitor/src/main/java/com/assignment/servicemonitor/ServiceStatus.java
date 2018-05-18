@@ -17,7 +17,7 @@ public class ServiceStatus {
     private long statusTimestamp;
     private String status;
 
-    public boolean DownToUp(long timestamp, int graceTime) {
+    public boolean checkDownToUp(long timestamp, int graceTime) {
 
         switch (status) {
             case SERVICE_DOWN:
@@ -37,7 +37,7 @@ public class ServiceStatus {
 
     }
 
-    public boolean UpToDown(long timestamp, int graceTime) {
+    public boolean checkUpToDown(long timestamp, int graceTime) {
         
         switch (status) {
             case SERVICE_UP:
